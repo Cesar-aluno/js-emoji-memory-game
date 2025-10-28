@@ -7,11 +7,9 @@ body {
   user-select: none;
 }
 
-main{
-  position: relative;
+main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 30px;
   background: linear-gradient(
@@ -22,6 +20,8 @@ main{
     white 100%
   );
   padding: 40px 60px;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
 h2 {
@@ -29,11 +29,59 @@ h2 {
   color: wheat;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  padding: 10px 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.2);
 }
 
-button{
+
+.game {
+  width: 430px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  transform-style: preserve-3d;
+  perspective: 500px;
+  box-sizing: border-box;
+}
+
+.item {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightskyblue;
+  font-size: 3em;
+  transform: rotateY(180deg);
+  transition: 0.25s;
+}
+
+.item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: darkslategray;
+  transition: 0.25s;
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+}
+
+.item.boxOpen {
+  transform: rotateY(0deg);
+}
+
+.boxOpen::after,
+.boxMatch::after {
+  transform: rotateY(180deg);
+}
+
+button {
+  margin-top: 20px;
   padding: 15px 20px;
   width: 100%;
+  max-width: 430px;
   color: darkslategrey;
   background-color: lightcyan;
   border: none;
@@ -49,52 +97,7 @@ button:focus {
   background-color: darkolivegreen;
 }
 
-.game {
-  width: 430px;
-  height: 430px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  transform-style: preserve-3d;
-  perspective: 500px;
-}
-
-.item {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: lightskyblue;
-
-  font-size: 3em;
-  transform: rotateY(180deg);
-  transition: 0.25s;
-}
-
-.item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: darkslategray;
-  /* opacity: 0.85; */
-  transition: 0.25s;
-  transform: rotateY(0deg);
-  backface-visibility: hidden;
-}
-
-.item.boxOpen {
-  transform: rotateY(0deg);
-}
-
-.boxOpen::after,
-.boxMatch::after {
-  transform: rotateY(180deg);
-}
-
-/* meus acréscimos */
-button:hover{
+button:hover {
   color: blanchedalmond;
   background-color: indigo;
 }

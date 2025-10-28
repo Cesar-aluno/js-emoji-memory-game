@@ -1,24 +1,12 @@
 const emojis = [
-  "🐱",
-  "🐱",
-  "🦝",
-  "🦝",
-  "🦊",
-  "🦊",
-  "🐶",
-  "🐶",
-  "🐵",
-  "🐵",
-  "🦁",
-  "🦁",
-  "🐯",
-  "🐯",
-  "🐮",
-  "🐮",
+  "🐱", "🐱", "🦝", "🦝", "🦊", "🦊", "🐶", "🐶",
+  "🐵", "🐵", "🦁", "🦁", "🐯", "🐯", "🐮", "🐮",
+  "🐞", "🐞", "🪲", "🪲", "🐸", "🐸", "🦕", "🦕",
+  "🦋", "🦋", "🐢", "🐢", "🦔", "🦔", "🦓", "🦓"
 ];
-let openCards = [];
 
-let shuffleEmojis = emojis.sort(() => (Math.random() > 0.5 ? 2 : -1));
+let openCards = [];
+let shuffleEmojis = emojis.sort(() => Math.random() - 0.5);
 
 for (let i = 0; i < emojis.length; i++) {
   let box = document.createElement("div");
@@ -34,11 +22,9 @@ function handleClick() {
     openCards.push(this);
   }
 
-  if (openCards.length == 2) {
+  if (openCards.length === 2) {
     setTimeout(checkMatch, 500);
   }
-
-  console.log(openCards);
 }
 
 function checkMatch() {
