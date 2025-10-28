@@ -7,7 +7,7 @@ body {
   user-select: none;
 }
 
-.container {
+main{
   position: relative;
   display: flex;
   flex-direction: column;
@@ -31,11 +31,11 @@ h2 {
   letter-spacing: 0.1em;
 }
 
-.reset {
+button{
   padding: 15px 20px;
   width: 100%;
-  color: black;
-  background-color: whitesmoke;
+  color: darkslategrey;
+  background-color: lightcyan;
   border: none;
   font-size: 1.5em;
   letter-spacing: 0.1em;
@@ -44,7 +44,7 @@ h2 {
   font-weight: 600;
 }
 
-.reset:focus {
+button:focus {
   color: cadetblue;
   background-color: darkolivegreen;
 }
@@ -91,4 +91,10 @@ h2 {
 .boxOpen::after,
 .boxMatch::after {
   transform: rotateY(180deg);
+}
+
+/* meus acréscimos */
+button:hover{
+  color: blanchedalmond;
+  background-color: indigo;
 }
